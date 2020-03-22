@@ -124,10 +124,57 @@ var axios = require("axios");
 export default {
 	data: function() {
 		return {
-			tutor: {},
+      name: "",
+      street: "",
+      city: "",
+      state: "",
+      zip: "",
+      school: "",
+      email: "",
+      phone: "",
+      phone_visible: "",
+      about: "",
+      grade_min: "",
+      grade_max: "",
+      rate: "",
+      accept_new: "",
 			errors: []
 		};
-	}
+  },
+  methods: {
+    submit: function() {
+      var params = {
+        name: this.name,
+        street: this.street,
+        city: this.city,
+        state: this.state,
+        zip: this.zip,
+        school: this.school,
+        email: this.email,
+        phone: this.phone,
+        phone_visible: this.phone_visible,
+        about: this.about,
+        grade_min: this.grade_min,
+        grade_max: this.grade_max,
+        rate: this.rate,
+        accept_new: this.accept_new
+      };
+      console.log(params);
+      axios
+				.post("/api/tutors", params)
+				.then(response => {
+					if (response.status === 200) {
+            window.alert("Account successfully created");
+            router.push('/');
+					}
+        })
+        .catch(
+          function(error) {
+            this.errors = error.response.data.errors;
+          }.bind(this)
+        );
+    }
+   }
 };
 </script>
 
