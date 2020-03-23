@@ -255,7 +255,7 @@ export default {
         .then(response => {
           if (response.status === 200) {
             window.alert("Account successfully created");
-            router.push("/");
+            this.$router.push("/");
           }
         })
         .catch(error => {
