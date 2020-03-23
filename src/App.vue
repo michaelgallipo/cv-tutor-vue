@@ -7,7 +7,8 @@
         <router-link to="/tutors">Find a Tutor</router-link>
         <router-link v-if="!isLoggedIn()" to="/create">&ensp;|&ensp;Become a Tutor</router-link>
         <router-link v-if="!isLoggedIn()" to="/login">&ensp;|&ensp;Tutor Login</router-link>
-        <a v-if="isLoggedIn()" href="/" v-onClick="logout()">&ensp;|&ensp;Logout</a>
+        <router-link v-if="isLoggedIn()" to="/edit">&ensp;|&ensp;Edit Profile</router-link>
+        <router-link v-if="isLoggedIn()" to="/logout">&ensp;|&ensp;Logout</router-link>
       </div>
       <router-view />
       <footer>
@@ -73,10 +74,6 @@ export default {
   //     };
   //   },
   methods: {
-    logout() {
-      axios.defaults.headers.common["Authorization"] = undefined;
-      localStorage.removeItem("jwt");
-    },
     isLoggedIn: function() {
       if (localStorage.getItem("jwt")) {
         return true;

@@ -1,44 +1,49 @@
 <template>
-  <div class="create">
+  <div class="edit">
     <div class="container">
-      <h1>Create an Account to Become a Tutor</h1>
+      <h1>Edit Your Profile</h1>
       <ul>
         <li class="text-danger" v-for="(error, index) in errors" :key="index">{{ error }}</li>
       </ul>
       <div class="form-group">
         <label>Name:</label>
-        <input type="text" class="form-control" v-model="name" />
+        <input type="text" class="form-control" v-model="tutorData.name" />
       </div>
       <div class="form-group">
         <label>Street:</label>
-        <input type="text" class="form-control" v-model="street" />
+        <input type="text" class="form-control" v-model="tutorData.street" />
       </div>
       <div class="form-group row">
         <label class="col-sm-1 col-form-label">City:</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="city" />
+          <input type="text" class="form-control" v-model="tutorData.city" />
         </div>
         <label class="col-sm-1 col-form-label">State:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="state" />
+          <input type="text" class="form-control" v-model="tutorData.state" />
         </div>
         <label class="col-sm-2 col-form-label">Zip Code:</label>
         <div class="col-sm-2">
-          <input type="text" class="form-control" v-model="zip" />
+          <input type="text" class="form-control" v-model="tutorData.zip" />
         </div>
       </div>
       <div class="form-group">
         <label>School:</label>
-        <input type="text" class="form-control" v-model="school" />
+        <input type="text" class="form-control" v-model="tutorData.school" />
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="text" class="form-control" v-model="email" />
+        <input type="text" class="form-control" v-model="tutorData.email" />
       </div>
       <div class="form-group row">
         <div class="form-group col-sm-6">
           <label>Password</label>
-          <input type="password" class="form-control" placeholder="Password" v-model="password" />
+          <input
+            type="password"
+            class="form-control"
+            placeholder="Only enter if you want to change"
+            v-model="tutorData.password"
+          />
         </div>
         <div class="form-group col-sm-6">
           <label>Confirm Password</label>
@@ -46,14 +51,14 @@
             type="password"
             class="form-control"
             placeholder="Repeat Password"
-            v-model="password_confirmation"
+            v-model="tutorData.password_confirmation"
           />
         </div>
       </div>
       <div class="form-group row">
         <label class="col-sm-1 col-form-label">Phone:</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="phone" />
+          <input type="text" class="form-control" v-model="tutorData.phone" />
         </div>
         <label class="col-sm-2 col-form-label">Phone Visible?:</label>
         <div class="col-sm-3">
@@ -64,7 +69,7 @@
               name="inlineRadioOptions"
               id="inlineRadio1"
               value="true"
-              v-model="phone_visible"
+              v-model="tutorData.phone_visible"
             />
             <label class="form-check-label" for="inlineRadio1">Yes</label>
           </div>
@@ -75,7 +80,7 @@
               name="inlineRadioOptions"
               id="inlineRadio2"
               value="false"
-              v-model="phone_visible"
+              v-model="tutorData.phone_visible"
             />
             <label class="form-check-label" for="inlineRadio2">No</label>
           </div>
@@ -83,7 +88,7 @@
       </div>
       <div class="form-group">
         <label>About Me:</label>
-        <textarea type="textarea" class="form-control" rows="5" v-model="about" />
+        <textarea type="textarea" class="form-control" rows="5" v-model="tutorData.about" />
       </div>
       <div class="form-group">
         <label>Subjects</label>
@@ -94,7 +99,7 @@
             type="checkbox"
             id="checkbox1"
             value="true"
-            v-model="math"
+            v-model="tutorData.math"
           />
           <label class="form-check-label" for="checkbox1">Math &emsp;</label>
         </div>
@@ -104,7 +109,7 @@
             type="checkbox"
             id="checkbox2"
             value="true"
-            v-model="reading"
+            v-model="tutorData.reading"
           />
           <label class="form-check-label" for="checkbox2">Reading &emsp;</label>
         </div>
@@ -114,7 +119,7 @@
             type="checkbox"
             id="checkbox3"
             value="true"
-            v-model="spelling"
+            v-model="tutorData.spelling"
           />
           <label class="form-check-label" for="checkbox2">Spelling &emsp;</label>
         </div>
@@ -124,7 +129,7 @@
             type="checkbox"
             id="checkbox4"
             value="true"
-            v-model="special_needs"
+            v-model="tutorData.special_needs"
           />
           <label class="form-check-label" for="checkbox4">Special Needs &emsp;</label>
         </div>
@@ -134,7 +139,7 @@
             type="checkbox"
             id="checkbox5"
             value="true"
-            v-model="science"
+            v-model="tutorData.science"
           />
           <label class="form-check-label" for="checkbox5">Science &emsp;</label>
         </div>
@@ -144,7 +149,7 @@
             type="checkbox"
             id="checkbox6"
             value="true"
-            v-model="social_studies"
+            v-model="tutorData.social_studies"
           />
           <label class="form-check-label" for="checkbox4">Social Studies &emsp;</label>
         </div>
@@ -152,15 +157,15 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Min Grade:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="grade_min" />
+          <input type="text" class="form-control" v-model="tutorData.grade_min" />
         </div>
         <label class="col-sm-2 col-form-label">Max Grade:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="grade_max" />
+          <input type="text" class="form-control" v-model="tutorData.grade_max" />
         </div>
         <label class="col-sm-1 col-form-label">Rate:</label>
         <div class="col-sm-2">
-          <input type="text" class="form-control" v-model="rate" />
+          <input type="text" class="form-control" v-model="tutorData.rate" />
         </div>
       </div>
       <div class="form-row">
@@ -172,7 +177,7 @@
             name="inlineRadioOptions"
             id="inlineRadio1"
             value="true"
-            v-model="accept_new"
+            v-model="tutorData.accept_new"
           />
           <label class="form-check-label" for="inlineRadio1">Yes</label>
         </div>
@@ -183,7 +188,7 @@
             name="inlineRadioOptions"
             id="inlineRadio2"
             value="false"
-            v-model="accept_new"
+            v-model="tutorData.accept_new"
           />
           <label class="form-check-label" for="inlineRadio2">No</label>
         </div>
@@ -194,68 +199,35 @@
 </template>
 
 <script>
-var axios = require("axios");
+const axios = require("axios");
+
 export default {
   data: function() {
     return {
-      name: "",
-      street: "",
-      city: "",
-      state: "",
-      zip: "",
-      school: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
-      phone: "",
-      phone_visible: "",
-      about: "",
-      grade_min: "",
-      grade_max: "",
-      rate: "",
-      accept_new: true,
-      math: false,
-      reading: false,
-      spelling: false,
-      special_needs: false,
-      science: false,
-      social_studies: false,
+      tutorData: {},
       errors: []
     };
   },
+  created: function() {
+    axios
+      .get("api/tutors/1")
+      .then(response => {
+        this.tutorData = response.data;
+      })
+      .catch(error => {
+        this.errors = error.response.data.errors;
+      });
+  },
   methods: {
     submit: function() {
-      var params = {
-        name: this.name,
-        street: this.street,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        school: this.school,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.password_confirmation,
-        phone: this.phone,
-        phone_visible: this.phone_visible,
-        about: this.about,
-        grade_min: this.grade_min,
-        grade_max: this.grade_max,
-        rate: this.rate,
-        accept_new: this.accept_new,
-        math: this.math,
-        reading: this.reading,
-        spelling: this.spelling,
-        special_needs: this.special_needs,
-        science: this.science,
-        social_studies: this.social_studies
-      };
-      // console.log(params);
+      const params = { ...this.tutorData };
+      console.log(params);
       axios
-        .post("/api/tutors", params)
+        .patch("api/tutors/" + this.tutorData.id, params)
         .then(response => {
-          if (response.status === 200) {
-            window.alert("Account successfully created");
-            this.$router.push("/");
+          if (response.status === 200 || 201) {
+            this.tutorData = response.data;
+            window.alert("Changes Saved");
           }
         })
         .catch(error => {
@@ -265,10 +237,3 @@ export default {
   }
 };
 </script>
-
-<style>
-.create h1 {
-  text-align: center;
-  padding-bottom: 50px;
-}
-</style>

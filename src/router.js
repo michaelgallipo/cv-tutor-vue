@@ -33,10 +33,22 @@ export default new Router({
 				import(/* webpackChunkName: "about" */ "./views/Create.vue")
 		},
 		{
+			path: "/edit",
+			name: "edit",
+			component: () =>
+				import(/* webpackChunkName: "about" */ "./views/Edit.vue")
+		},
+		{
 			path: "/login",
 			name: "login",
 			component: () =>
 				import(/* webpackChunkName: "about" */ "./views/Login.vue")
+		},
+		{
+			path: "/logout",
+			name: "logout",
+			component: () =>
+				import(/* webpackChunkName: "about" */ "./views/Logout.vue")
 		}
 	]
 });

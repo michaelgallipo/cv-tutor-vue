@@ -2,7 +2,7 @@
   <div class="login">
     <h1>Tutor Login</h1>
     <ul>
-      <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      <li class="text-danger">{{ error }}</li>
     </ul>
     <div class="form-group">
       <label>Email:</label>
@@ -23,7 +23,7 @@ export default {
     return {
       email: "",
       password: "",
-      errors: []
+      error: ""
     };
   },
   methods: {
@@ -43,7 +43,7 @@ export default {
           this.$router.push("/");
         })
         .catch(error => {
-          this.errors = ["Invalid email or password."];
+          this.error = "Invalid email or password.";
           this.email = "";
           this.password = "";
         });
