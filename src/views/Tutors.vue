@@ -3,27 +3,73 @@
     <div class="title">
       <h1>See Our Tutors</h1>
     </div>
+    <div id="filters" class="row">
+      <div id="subFilter">
+        Subject Filter: &ensp;
+        <select
+          v-model="subject_filter"
+          class="selectpicker"
+          data-style="btn-info"
+        >
+          <option class="dropdown-item" value>All</option>
+          <option class="dropdown-item" value="math">Math</option>
+          <option class="dropdown-item" value="reading">Reading</option>
+          <option class="dropdown-item" value="science">Science</option>
+          <option class="dropdown-item" value="social_studies">Social Studies</option>
+          <option class="dropdown-item" value="special_needs">Special_Needs</option>
+          <option class="dropdown-item" value="spelling">Spelling</option>
+        </select>
+      </div>
+      <div id="gradeFilter">
+        Grade: &ensp;
+        <select v-model="grade_filter" class="selectpicker" data-style="btn-info">
+          <option class="dropdown-item" value>All</option>
+          <option class="dropdown-item" value="1">First</option>
+          <option class="dropdown-item" value="2">Second</option>
+          <option class="dropdown-item" value="3">Third</option>
+          <option class="dropdown-item" value="4">Fourth</option>
+          <option class="dropdown-item" value="5">Fifth</option>
+          <option class="dropdown-item" value="6">Sixth</option>
+          <option class="dropdown-item" value="7">Seventh</option>
+          <option class="dropdown-item" value="8">Eight</option>
+        </select>
+      </div>
+    </div>
     <div v-for="tutor in tutors" :key="tutor.id" class="col-lg-12">
-      <div class="card border-2" style="margin-bottom: 20px">
-        <div class="card-body">
-          <h4 style="font-weight:bold">{{ tutor.name }}</h4>
-          <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
-          <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
-          <p>{{ tutor.about }}</p>
-          <label id="subjects">Subjects</label>
-          <ul class="list-group list-group-horizontal">
-            <div v-for="(subject, index) in tutor.subjects" :key="index">
-              <li class="list-group-item border-0" id="subject">{{subject}}</li>
+      <div
+        v-if="subject_filter == 'math' && tutor.math == true 
+			 || subject_filter == 'reading' && tutor.reading == true 
+			 || subject_filter == 'science' && tutor.science == true 
+			 || subject_filter == 'social_studies' && tutor.social_studies == true 
+			 || subject_filter == 'special_needs' && tutor.special_needs == true 
+			 || subject_filter == 'spelling' && tutor.spelling == true 
+			 || subject_filter == ''"
+      >
+        <div
+          v-if="grade_filter >= tutor.grade_min && grade_filter <= tutor.grade_max || grade_filter == ''"
+        >
+          <div class="card border-2" style="margin-bottom: 20px">
+            <div class="card-body">
+              <h4 style="font-weight:bold">{{ tutor.name }}</h4>
+              <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
+              <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
+              <p>{{ tutor.about }}</p>
+              <label id="subjects">Subjects</label>
+              <ul class="list-group list-group-horizontal">
+                <div v-for="(subject, index) in tutor.subjects" :key="index">
+                  <li class="list-group-item border-0" id="subject">{{subject}}</li>
+                </div>
+              </ul>
+              <p>Grade Levels: {{ tutor.grade_min }} - {{ tutor.grade_max }}</p>
+              <p>Rate: {{ tutor.rate }}</p>
+              <p>
+                Contact:
+                <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
+              </p>
+              <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
+              <p v-if="tutor.accept_new">Accepting New Students</p>
             </div>
-          </ul>
-          <p>Grade Levels: {{ tutor.grade_min }} - {{ tutor.grade_max }}</p>
-          <p>Rate: {{ tutor.rate }}</p>
-          <p>
-            Contact:
-            <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
-          </p>
-          <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
-          <p v-if="tutor.accept_new">Accepting New Students</p>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +94,21 @@ p {
 #subject {
   padding: 0rem 1.25rem 0.4rem 0.4rem;
 }
+
+.selectpicker {
+  background-color: ghostwhite;
+  margin-bottom: 20px;
+  height: 40px;
+  width: 200px;
+}
+
+#filters {
+  margin-left: 18px;
+}
+
+#gradeFilter {
+  margin-left: 25px;
+}
 </style>
 
 <script>
@@ -55,7 +116,9 @@ var axios = require("axios");
 export default {
   data: function() {
     return {
-      tutors: []
+      tutors: [],
+      subject_filter: "",
+      grade_filter: ""
     };
   },
 
