@@ -32,6 +32,7 @@
 #nav {
   padding: 30px;
   text-align: center;
+  font-size: 20px;
 }
 
 #nav a {

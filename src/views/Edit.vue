@@ -193,7 +193,38 @@
           <label class="form-check-label" for="inlineRadio2">No</label>
         </div>
       </div>
-      <button class="btn btn-primary" v-on:click="submit()">Submit</button>
+      <button class="btn btn-primary" v-on:click="submit()">Save Changes</button>
+      <button
+        id="deleteButton"
+        class="btn btn-danger"
+        data-toggle="modal"
+        data-target="#deleteModal"
+      >Delete Account</button>
+    </div>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="deleteModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="deleteModal"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalDeleteTitle">Delete Account?</h5>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to delete your account? This action cannont be undone.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger" v-on:click="deleteAccount()">Confirm Delete</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -233,7 +264,30 @@ export default {
         .catch(error => {
           this.errors = error.response.data.errors;
         });
+    },
+    deleteAccount: function() {
+      axios
+        .delete("api/tutors/" + this.tutorData.id)
+        .then(response => {
+          if (response.status === 200) {
+            axios.defaults.headers.common["Authorization"] = undefined;
+            localStorage.removeItem("jwt");
+            this.$router.push("/");
+          }
+        })
+        .catch(error => {
+          this.errors = error.response.data.errors;
+        });
     }
   }
 };
 </script>
+
+<style scoped>
+button {
+  margin-top: 20px;
+}
+#deleteButton {
+  margin-left: 30px;
+}
+</style>
