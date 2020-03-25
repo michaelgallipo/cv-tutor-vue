@@ -5,10 +5,14 @@
         <router-link to="/">Home</router-link>&ensp;|&ensp;
         <router-link to="/about">About</router-link>&ensp;|&ensp;
         <router-link to="/tutors">Find a Tutor</router-link>
-        <router-link v-if="!isLoggedIn()" to="/create">&ensp;|&ensp;Become a Tutor</router-link>
-        <router-link v-if="!isLoggedIn()" to="/login">&ensp;|&ensp;Tutor Login</router-link>
-        <router-link v-if="isLoggedIn()" to="/edit">&ensp;|&ensp;Edit Profile</router-link>
-        <router-link v-if="isLoggedIn()" to="/logout">&ensp;|&ensp;Logout</router-link>
+        <span v-if="!isLoggedIn()">&ensp;|&ensp;</span>
+        <router-link v-if="!isLoggedIn()" to="/create">Become a Tutor</router-link>
+        <span v-if="!isLoggedIn()">&ensp;|&ensp;</span>
+        <router-link v-if="!isLoggedIn()" to="/login">Tutor Login</router-link>
+        <span v-if="isLoggedIn()">&ensp;|&ensp;</span>
+        <router-link v-if="isLoggedIn()" to="/edit">Edit Profile</router-link>
+        <span v-if="isLoggedIn()">&ensp;|&ensp;</span>
+        <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
       </div>
       <router-view />
       <footer>
@@ -63,17 +67,8 @@ footer p {
 </style>
 
 <script>
-// import Login from "./components/Login.vue";
 const axios = require("axios");
 export default {
-  //   components: {
-  //     Login
-  //   },
-  //   data() {
-  //     return {
-  //       isLoginVisible: true
-  //     };
-  //   },
   methods: {
     isLoggedIn: function() {
       if (localStorage.getItem("jwt")) {
@@ -81,13 +76,6 @@ export default {
       }
       return false;
     }
-    //     showLogin() {
-    //       this.isLoginVisible = true;
-    //       console.log("clicked", this.isLoginVisible);
-    //     },
-    //     closeLogin() {
-    //       this.isLoginVisible = false;
-    //     }
   }
 };
 </script>

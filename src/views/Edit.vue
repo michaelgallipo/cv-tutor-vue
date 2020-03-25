@@ -60,7 +60,7 @@
         <div class="col-sm-3">
           <input type="text" class="form-control" v-model="tutorData.phone" />
         </div>
-        <label class="col-sm-2 col-form-label">Phone Visible?:</label>
+        <label class="col-sm-2 col-form-label">&emsp;Phone Visible?</label>
         <div class="col-sm-3">
           <div class="form-check form-check-inline">
             <input
@@ -244,6 +244,7 @@ export default {
       .get("api/tutors/1")
       .then(response => {
         this.tutorData = response.data;
+        console.log(this.tutorData.phone_visible);
       })
       .catch(error => {
         this.errors = error.response.data.errors;

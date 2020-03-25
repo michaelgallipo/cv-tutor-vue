@@ -58,6 +58,31 @@
           Parents have the option of filtering the tutor list by subject to help find the best tutor for their
           circumstances.
         </p>
+        <p>
+          <span class="subhead">Rates</span> - Some tutors may be looking at this as an opportunity for community
+          service. But others may be looking to supplement their income/make up for lost jobs. The rate field allows
+          you to indicate what, if anything, you'd like to charge. It's a text entry field so you can enter a number
+          or a range or whatever else you would like.
+        </p>
+        <p>
+          <span class="subhead">Accepting New Students</span> - By default when you set up a new profile, Accepting
+          new students is set to true. However, down the road, if you have as many students as you want/can handle,
+          then you can set it to no and it will be reflected in your directory listing.
+        </p>
+      </div>
+      <div>
+        <h5>Technology</h5>
+        <p>
+          This site is designed to be a directory and a way for parents to find tutors. It does not currently have
+          technology for messaging or video conferencing. It will be up to individual tutors to decide with parents
+          what the best technology is for doing the remote tutoring. Zoom is one service that might work well for
+          tutors. The free account allows unlimited length one on one calls and has built in screen sharing. But
+          there are plenty of other choices including Skype, FaceTime, GoToMeeting, and others.
+        </p>
+        <p>
+          In addition, the site does not have any payment processing software built in. So if you charge for your
+          services, you will need to make arrangements with the parents on your own via whatever system you prefer.
+        </p>
       </div>
     </div>
   </div>
