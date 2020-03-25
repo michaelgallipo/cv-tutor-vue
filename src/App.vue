@@ -16,7 +16,7 @@
       </div>
       <router-view />
       <footer>
-        <div class="row">
+        <div class="row" style="100vw">
           <div class="col-sm-2">
             <img style="height: 60px; width: 60px" alt="Hippo Web logo" src="./assets/hippo.jpg" />
           </div>
