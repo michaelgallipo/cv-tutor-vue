@@ -57,13 +57,6 @@ footer {
   padding-top: 20px;
 }
 
-/* footer p {
-  display: unset;
-  margin-block-start: 0px;
-  margin-block-end: 0px;
-  padding-bottom: 20px;
-} */
-
 .hippo {
   padding-top: 1em;
 }

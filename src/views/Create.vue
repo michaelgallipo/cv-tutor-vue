@@ -61,23 +61,23 @@
             <input
               class="form-check-input"
               type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio1"
+              name="phoneVisibleOptions"
+              id="phoneVis1"
               value="true"
               v-model="phone_visible"
             />
-            <label class="form-check-label" for="inlineRadio1">Yes</label>
+            <label class="form-check-label" for="phoneVis1">Yes</label>
           </div>
           <div class="form-check form-check-inline">
             <input
               class="form-check-input"
               type="radio"
-              name="inlineRadioOptions"
-              id="inlineRadio2"
+              name="phoneVisibleOptions"
+              id="phoneVis2"
               value="false"
               v-model="phone_visible"
             />
-            <label class="form-check-label" for="inlineRadio2">No</label>
+            <label class="form-check-label" for="phoneVis2">No</label>
           </div>
         </div>
       </div>
@@ -170,22 +170,22 @@
             class="form-check-input"
             type="radio"
             name="inlineRadioOptions"
-            id="inlineRadio1"
+            id="acceptNew1"
             value="true"
             v-model="accept_new"
           />
-          <label class="form-check-label" for="inlineRadio1">Yes</label>
+          <label class="form-check-label" for="acceptNew1">Yes</label>
         </div>
         <div class="form-check form-check-inline">
           <input
             class="form-check-input"
             type="radio"
             name="inlineRadioOptions"
-            id="inlineRadio2"
+            id="acceptNew1"
             value="false"
             v-model="accept_new"
           />
-          <label class="form-check-label" for="inlineRadio2">No</label>
+          <label class="form-check-label" for="acceptNew2">No</label>
         </div>
       </div>
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
@@ -250,17 +250,43 @@ export default {
         social_studies: this.social_studies
       };
       // console.log(params);
-      axios
-        .post("/api/tutors", params)
-        .then(response => {
-          if (response.status === 200) {
-            window.alert("Account successfully created");
-            this.$router.push("/");
-          }
-        })
-        .catch(error => {
-          this.errors = error.response.data.errors;
-        });
+      if (this.validate_entry(params)) {
+        axios
+          .post("/api/tutors", params)
+          .then(response => {
+            if (response.status === 200) {
+              window.alert("Account successfully created");
+              this.$router.push("/");
+            }
+          })
+          .catch(error => {
+            this.errors = error.response.data.errors;
+          });
+      } else {
+        console.log(this.errors);
+      }
+    },
+    validate_entry: function(params) {
+      this.errors = [];
+      if (params.grade_min < 1 || params.grade_min > 8) {
+        this.errors.push("Grade Minimum must be between 1-8");
+      }
+      if (params.grade_max < 1 || params.grade_max > 8) {
+        this.errors.push("Grade Maximum must be between 1-8");
+      }
+      if (params.grade_max < params.grade_min) {
+        this.errors.push("Grade Maximim can not be less than Grade Minimum");
+      }
+      if (params.state.length > 2) {
+        this.errors.push("State field should use two letter abbreviation");
+      }
+      if (params.password !== params.password_confirmation) {
+        this.errors.push("Password and Password Confirmation should match");
+      }
+      if (params.password.length < 8) {
+        this.errors.push("Password should be at least 8 characters");
+      }
+      return this.errors.length > 0 ? false : true;
     }
   }
 };
