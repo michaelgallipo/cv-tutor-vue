@@ -35,6 +35,10 @@
         </select>
       </div>
     </div>
+    <div v-if="!data_loaded" class="d-flex align-items-center">
+      <strong>Data Loading...</strong>
+      <div class="spinner-grow ml-auto" role="status" aria-hidden="true"></div>
+    </div>
     <div v-for="tutor in tutors" :key="tutor.id" class="col-lg-12">
       <div
         v-if="subject_filter == 'math' && tutor.math == true 
@@ -118,12 +122,14 @@ export default {
     return {
       tutors: [],
       subject_filter: "",
-      grade_filter: ""
+      grade_filter: "",
+      data_loaded: false
     };
   },
 
   created: function() {
     axios.get("api/tutors").then(response => {
+      this.data_loaded = true;
       this.tutors = response.data;
       console.log(this.tutors);
     });
