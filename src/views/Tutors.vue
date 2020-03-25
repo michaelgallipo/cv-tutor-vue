@@ -55,7 +55,7 @@
               <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
               <p>{{ tutor.about }}</p>
               <label id="subjects">Subjects</label>
-              <ul class="list-group list-group-horizontal">
+              <ul class="list-group list-group-horizontal-sm">
                 <div v-for="(subject, index) in tutor.subjects" :key="index">
                   <li class="list-group-item border-0" id="subject">{{subject}}</li>
                 </div>

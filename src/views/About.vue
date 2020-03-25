@@ -8,7 +8,7 @@
         child(ren)'s education. At the same time, college students have returned
         home with their activities eliminated and, in most cases, unable to
         perform jobs they were doing previously. CV Tutor Web was created to be
-        a platform to for parents to find students who are willing to provide
+        a platform for parents to find students who are willing to provide
         online tutoring services.
       </p>
     </div>
@@ -44,7 +44,7 @@
       </p>
       <div id="profileDetails">
         <p>
-          <span class="subhead">Grade Range</span> - You can set mininmum and maxium grades you are willing to worth
+          <span class="subhead">Grade Range</span> - You can set mininmum and maxium grades you are willing to tutor
           with a minimum of first grade and maximum of eigth grade.
         </p>
         <p>
@@ -65,8 +65,8 @@
           or a range or whatever else you would like.
         </p>
         <p>
-          <span class="subhead">Accepting New Students</span> - By default when you set up a new profile, Accepting
-          new students is set to true. However, down the road, if you have as many students as you want/can handle,
+          <span class="subhead">Accepting New Students</span> - By default when you set up a new profile, "accepting
+          new students" is set to true. However, down the road, if you have as many students as you want/can handle,
           then you can set it to no and it will be reflected in your directory listing.
         </p>
       </div>
@@ -74,8 +74,9 @@
         <h5>Technology</h5>
         <p>
           This site is designed to be a directory and a way for parents to find tutors. It does not currently have
-          technology for messaging or video conferencing. It will be up to individual tutors to decide with parents
-          what the best technology is for doing the remote tutoring. Zoom is one service that might work well for
+          technology for messaging or video conferencing (but your email is clickable and will launch the parent's
+          email client). It will be up to individual tutors to decide with parents what the best technology is for
+          doing the remote tutoring. Zoom is one service that might work well for
           tutors. The free account allows unlimited length one on one calls and has built in screen sharing. But
           there are plenty of other choices including Skype, FaceTime, GoToMeeting, and others.
         </p>

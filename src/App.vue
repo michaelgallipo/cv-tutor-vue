@@ -16,10 +16,14 @@
       </div>
       <router-view />
       <footer>
-        <!-- <div> -->
-        <img style="height: 60px; width: 60px" alt="Hippo Web logo" src="./assets/hippo.jpg" />
-        <p class="hippo">Created by Hippo Web Development</p>
-        <!-- </div> -->
+        <div class="row">
+          <div class="col-sm-2">
+            <img style="height: 60px; width: 60px" alt="Hippo Web logo" src="./assets/hippo.jpg" />
+          </div>
+          <div class="col-sm-5 offset-sm-2">
+            <p class="hippo">Created by Hippo Web Development</p>
+          </div>
+        </div>
       </footer>
     </div>
   </div>
@@ -53,16 +57,15 @@ footer {
   padding-top: 20px;
 }
 
-footer p {
-  /* display: inline-block; */
+/* footer p {
   display: unset;
   margin-block-start: 0px;
   margin-block-end: 0px;
   padding-bottom: 20px;
-}
+} */
 
 .hippo {
-  margin-left: 20em;
+  padding-top: 1em;
 }
 </style>
 
