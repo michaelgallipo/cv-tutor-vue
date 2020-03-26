@@ -1,5 +1,9 @@
 <template>
   <div class="about">
+    <div id="logo">
+      <img alt="CV Tutor Web logo" src="../assets/cv-tutor-web.png" style="width: 150px" />
+    </div>
+    <div id="title">CV Tutor Web</div>
     <div id="parents">
       <h2>Information For Parents</h2>
       <h5>About the Tutors</h5>
@@ -85,6 +89,17 @@
 /* #intro {
   padding: 10px;
 } */
+
+#logo {
+  position: relative;
+  left: 43%;
+}
+
+#title {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 900;
+}
 
 #parents {
   margin-top: 25px;
