@@ -34,6 +34,18 @@
           <option class="dropdown-item" value="8">Eight</option>
         </select>
       </div>
+      <div id="stateFilter">
+        State: &ensp;
+        <select v-model="state_filter" class="selectpicker" data-style="btn-info">
+          <option class="dropdown-item" value>All</option>
+          <option
+            v-for="(state, index) in states"
+            :key="index"
+            class="dropdown-item"
+            v-bind:value="state"
+          >{{state}}</option>
+        </select>
+      </div>
     </div>
     <div v-if="!data_loaded" class="d-flex align-items-center">
       <strong>Data Loading...</strong>
@@ -52,26 +64,28 @@
         <div
           v-if="grade_filter >= tutor.grade_min && grade_filter <= tutor.grade_max || grade_filter == ''"
         >
-          <div class="card border-2" style="margin-bottom: 20px">
-            <div class="card-body">
-              <h4 style="font-weight:bold">{{ tutor.name }}</h4>
-              <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
-              <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
-              <p>{{ tutor.about }}</p>
-              <label id="subjects">Subjects</label>
-              <ul class="list-group list-group-horizontal-sm">
-                <div v-for="(subject, index) in tutor.subjects" :key="index">
-                  <li class="list-group-item border-0" id="subject">{{subject}}</li>
-                </div>
-              </ul>
-              <p>Grade Levels: {{ tutor.grade_min }} - {{ tutor.grade_max }}</p>
-              <p>Rate: {{ tutor.rate }}</p>
-              <p>
-                Contact:
-                <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
-              </p>
-              <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
-              <p v-if="tutor.accept_new">Accepting New Students</p>
+          <div v-if="state_filter === tutor.state || state_filter == ''">
+            <div class="card border-2" style="margin-bottom: 20px">
+              <div class="card-body">
+                <h4 style="font-weight:bold">{{ tutor.name }}</h4>
+                <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
+                <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
+                <p>{{ tutor.about }}</p>
+                <label id="subjects">Subjects</label>
+                <ul class="list-group list-group-horizontal-sm">
+                  <div v-for="(subject, index) in tutor.subjects" :key="index">
+                    <li class="list-group-item border-0" id="subject">{{subject}}</li>
+                  </div>
+                </ul>
+                <p>Grade Levels: {{ tutor.grade_min }} - {{ tutor.grade_max }}</p>
+                <p>Rate: {{ tutor.rate }}</p>
+                <p>
+                  Contact:
+                  <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
+                </p>
+                <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
+                <p v-if="tutor.accept_new">Accepting New Students</p>
+              </div>
             </div>
           </div>
         </div>
@@ -113,6 +127,10 @@ p {
 #gradeFilter {
   margin-left: 25px;
 }
+
+#stateFilter {
+  margin-left: 20px;
+}
 </style>
 
 <script>
@@ -123,15 +141,19 @@ export default {
       tutors: [],
       subject_filter: "",
       grade_filter: "",
-      data_loaded: false
+      state_filter: "",
+      data_loaded: false,
+      states: []
     };
   },
-
   created: function() {
     axios.get("api/tutors").then(response => {
       this.data_loaded = true;
       this.tutors = response.data;
       console.log(this.tutors);
+      let all_states = this.tutors.map(tutor => tutor.state);
+      this.states = Array.from(new Set(all_states)).sort((a, b) => a - b);
+      console.log(this.states);
     });
   }
 };
