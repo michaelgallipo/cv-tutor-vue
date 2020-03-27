@@ -21,7 +21,10 @@
             <img style="width: 60px" alt="Hippo Web logo" src="./assets/hippo.jpg" />
           </div>
           <div class="col-sm-5 offset-sm-2">
-            <p class="hippo">Created by Hippo Web Development</p>
+            <p class="hippo">
+              Created by
+              <a href v-on:click="openLink()" style="color: navy">Hippo Web Development</a>
+            </p>
           </div>
         </div>
       </footer>
@@ -55,6 +58,7 @@
 footer {
   display: inline-block;
   padding-top: 20px;
+  width: 100%;
 }
 
 .hippo {
@@ -71,7 +75,11 @@ export default {
         return true;
       }
       return false;
+    },
+    openLink: function() {
+      window.open("https://www.hippowebdevelopment.com");
     }
   }
 };
 </script>
+
