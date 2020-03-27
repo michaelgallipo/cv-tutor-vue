@@ -152,7 +152,7 @@ export default {
       this.tutors = response.data;
       console.log(this.tutors);
       let all_states = this.tutors.map(tutor => tutor.state);
-      this.states = Array.from(new Set(all_states)).sort((a, b) => a - b);
+      this.states = Array.from(new Set(all_states)).sort();
       console.log(this.states);
     });
   }

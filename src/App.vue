@@ -16,9 +16,9 @@
       </div>
       <router-view />
       <footer>
-        <div class="row" style="width: 100vw">
+        <div class="row">
           <div class="col-sm-2">
-            <img style="height: 60px; width: 60px" alt="Hippo Web logo" src="./assets/hippo.jpg" />
+            <img style="width: 60px" alt="Hippo Web logo" src="./assets/hippo.jpg" />
           </div>
           <div class="col-sm-5 offset-sm-2">
             <p class="hippo">Created by Hippo Web Development</p>
