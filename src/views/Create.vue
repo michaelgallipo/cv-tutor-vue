@@ -260,10 +260,14 @@ export default {
             }
           })
           .catch(error => {
-            this.errors = error.response.data.errors;
+            // this.errors = error.response.data.errors;
+            this.errors = [
+              "There was a problem saving your data. Please double check your responses"
+            ];
+            window.scrollTo(0, 0);
           });
       } else {
-        console.log(this.errors);
+        window.scrollTo(0, 0);
       }
     },
     validate_entry: function(params) {

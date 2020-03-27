@@ -266,6 +266,7 @@ export default {
           .catch(error => {
             this.errors = error.response.data.errors;
             console.log(this.errors, error);
+            window.scrollTo(0, 0);
           });
       } else {
         window.scrollTo(0, 0);

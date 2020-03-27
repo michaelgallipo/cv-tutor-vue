@@ -108,7 +108,7 @@
               </p>
               <div id="profileDetails">
                 <p>
-                  <span class="subhead">Grade Range</span> - You can set mininmum and maxium grades you are willing to tutor
+                  <span class="subhead">Grade Range</span> - You can set the mininmum and maximum grades you are willing to tutor
                   with a minimum of first grade and maximum of eigth grade.
                 </p>
                 <p>

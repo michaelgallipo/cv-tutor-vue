@@ -47,6 +47,22 @@
         </select>
       </div>
     </div>
+    <!-- <div>
+      <button
+        class="btn btn-info"
+        v-if="!show_all"
+        v-on:click="toggleShowAll()"
+      >Include those not accepting new students</button>
+      <button
+        class="btn-info"
+        v-if="show_all"
+        v-on:click="toggleShowAll()"
+      >Hide those not accepting new students</button>
+    </div>-->
+    <div class="form-check" id="showAll">
+      <input class="form-check-input" type="checkbox" v-on:click="toggleShowAll()" />
+      <label class="form-check-label">Include those not accepting new students in listings</label>
+    </div>
     <div v-if="!data_loaded" class="d-flex align-items-center">
       <strong>Data Loading...</strong>
       <div class="spinner-grow ml-auto" role="status" aria-hidden="true"></div>
@@ -65,26 +81,28 @@
           v-if="grade_filter >= tutor.grade_min && grade_filter <= tutor.grade_max || grade_filter == ''"
         >
           <div v-if="state_filter === tutor.state || state_filter == ''">
-            <div class="card border-2" style="margin-bottom: 20px">
-              <div class="card-body">
-                <h4 style="font-weight:bold">{{ tutor.name }}</h4>
-                <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
-                <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
-                <p>{{ tutor.about }}</p>
-                <label id="subjects">Subjects</label>
-                <ul class="list-group list-group-horizontal-sm">
-                  <div v-for="(subject, index) in tutor.subjects" :key="index">
-                    <li class="list-group-item border-0" id="subject">{{subject}}</li>
-                  </div>
-                </ul>
-                <p>Grade Levels: {{ tutor.grade_min }} - {{ tutor.grade_max }}</p>
-                <p>Rate: {{ tutor.rate }}</p>
-                <p>
-                  Contact:
-                  <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
-                </p>
-                <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
-                <p v-if="tutor.accept_new">Accepting New Students</p>
+            <div v-if="tutor.accept_new === true || show_all === true">
+              <div class="card border-2" style="margin-bottom: 20px">
+                <div class="card-body">
+                  <h4 style="font-weight:bold">{{ tutor.name }}</h4>
+                  <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
+                  <p style="font-size:18px; margin-top:7px; font-style: italic">About Me</p>
+                  <p>{{ tutor.about }}</p>
+                  <label id="subjects">Subjects</label>
+                  <ul class="list-group list-group-horizontal-sm">
+                    <div v-for="(subject, index) in tutor.subjects" :key="index">
+                      <li class="list-group-item border-0" id="subject">{{subject}}</li>
+                    </div>
+                  </ul>
+                  <p>Grade Levels: {{ tutor.grade_min }} - {{ tutor.grade_max }}</p>
+                  <p>Rate: {{ tutor.rate }}</p>
+                  <p>
+                    Contact:
+                    <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
+                  </p>
+                  <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
+                  <!-- <p v-if="tutor.accept_new">Accepting New Students</p> -->
+                </div>
               </div>
             </div>
           </div>
@@ -124,6 +142,11 @@ p {
   margin-left: 18px;
 }
 
+#showAll {
+  margin-left: 18px;
+  margin-bottom: 0.75em;
+}
+
 #gradeFilter {
   margin-left: 25px;
 }
@@ -143,6 +166,7 @@ export default {
       grade_filter: "",
       state_filter: "",
       data_loaded: false,
+      show_all: false,
       states: []
     };
   },
@@ -155,6 +179,12 @@ export default {
       this.states = Array.from(new Set(all_states)).sort();
       console.log(this.states);
     });
+  },
+  methods: {
+    toggleShowAll: function() {
+      this.show_all = !this.show_all;
+      console.log(this.show_all);
+    }
   }
 };
 </script>
