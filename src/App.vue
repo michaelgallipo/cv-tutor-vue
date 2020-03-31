@@ -13,6 +13,8 @@
         <router-link v-if="isLoggedIn()" to="/edit">Edit Profile</router-link>
         <span v-if="isLoggedIn()">&ensp;|&ensp;</span>
         <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
+        <span>&ensp;|&ensp;</span>
+        <router-link to="/contact">Contact/Support</router-link>
       </div>
       <router-view />
       <footer>
