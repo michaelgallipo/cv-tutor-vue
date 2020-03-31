@@ -2,19 +2,19 @@
   <div id="app">
     <div class="container">
       <div id="nav">
-        <router-link to="/">Home</router-link>&ensp;|&ensp;
-        <router-link to="/about">About</router-link>&ensp;|&ensp;
-        <router-link to="/tutors">Find a Tutor</router-link>
+        <router-link to="/">HOME</router-link>&ensp;|&ensp;
+        <router-link to="/about">ABOUT</router-link>&ensp;|&ensp;
+        <router-link to="/tutors">FIND A TUTOR</router-link>
         <span v-if="!isLoggedIn()">&ensp;|&ensp;</span>
-        <router-link v-if="!isLoggedIn()" to="/create">Become a Tutor</router-link>
+        <router-link v-if="!isLoggedIn()" to="/create">BECOME A TUTOR</router-link>
         <span v-if="!isLoggedIn()">&ensp;|&ensp;</span>
-        <router-link v-if="!isLoggedIn()" to="/login">Tutor Login</router-link>
+        <router-link v-if="!isLoggedIn()" to="/login">TUTOR LOGIN</router-link>
         <span v-if="isLoggedIn()">&ensp;|&ensp;</span>
-        <router-link v-if="isLoggedIn()" to="/edit">Edit Profile</router-link>
+        <router-link v-if="isLoggedIn()" to="/edit">EDIT PROFILE</router-link>
         <span v-if="isLoggedIn()">&ensp;|&ensp;</span>
-        <router-link v-if="isLoggedIn()" to="/logout">Logout</router-link>
+        <router-link v-if="isLoggedIn()" to="/logout">LOGOUT</router-link>
         <span>&ensp;|&ensp;</span>
-        <router-link to="/contact">Contact/Support</router-link>
+        <router-link to="/contact">CONTACT/SUPPORT</router-link>
       </div>
       <router-view />
       <footer>
@@ -36,7 +36,7 @@
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Roboto, "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */

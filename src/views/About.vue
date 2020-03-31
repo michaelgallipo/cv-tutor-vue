@@ -4,7 +4,7 @@
       <div id="logo" class="col-sm-3 offset-sm-5">
         <img alt="CV Tutor Web logo" src="../assets/cv-tutor-web.png" style="width: 150px" />
       </div>
-      <div id="title">CV Tutor Web</div>
+      <div id="title">CV TUTOR WEB</div>
       <div id="subtitle">Matching Students with the Tutors They Need</div>
       <div class="row">
         <div id="parent" class="col-sm-6">
@@ -166,10 +166,11 @@
   font-size: 24px;
   text-align: center;
   font-weight: 900;
+  color: #000;
 }
 
 #subtitle {
-  padding-top: 1em;
+  padding-top: 0.75em;
   padding-bottom: 1em;
   font-size: 30px;
   text-align: center;
