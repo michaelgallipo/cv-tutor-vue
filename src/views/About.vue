@@ -166,7 +166,13 @@
   font-size: 24px;
   text-align: center;
   font-weight: 900;
-  color: #000;
+  color: #fcf8ff;
+  text-shadow: 3px 3px black;
+  letter-spacing: 3px;
+  background-color: #feeaa7;
+  width: 9em;
+  margin-left: 40%;
+  margin-top: 0.25em;
 }
 
 #subtitle {
