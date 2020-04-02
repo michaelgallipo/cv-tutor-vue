@@ -82,7 +82,7 @@
         >
           <div v-if="state_filter === tutor.state || state_filter == ''">
             <div v-if="tutor.accept_new === true || show_all === true">
-              <div class="card border-2" style="margin-bottom: 20px">
+              <div class="card border-2" id="tutorCard">
                 <div class="card-body">
                   <h4 style="font-weight:bold">{{ tutor.name }}</h4>
                   <p>Location: {{ tutor.state }} &emsp; &emsp; School: {{ tutor.school }}</p>
@@ -120,6 +120,12 @@
 p {
   margin-block-start: 1px;
   margin-block-end: 1px;
+}
+
+#tutorCard {
+  border: 2px solid black;
+  box-shadow: 6px 6px 3px slategrey;
+  margin-bottom: 20px;
 }
 
 #subjects {
