@@ -57,7 +57,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body" id="parentModal">
+            <section class="modal-body" id="parentModal">
               <h5>About the Tutors</h5>
               <p>
                 The tutors on this platform are primarily college students and recent graduates. While we believe
@@ -78,7 +78,7 @@
                 option will be up to the respective parties to decide. Again, there are planty of options to choose from
                 including PayPal, the Cash App, Facebook Messenger, Venmo, etc.
               </p>
-            </div>
+            </section>
           </div>
         </div>
       </div>
@@ -106,7 +106,7 @@
                 Your profile is the "face" you show to parents looking for tutoring help. The platform allows you to customize
                 a number of different attributes.
               </p>
-              <div id="profileDetails">
+              <section id="profileDetails">
                 <p>
                   <span class="subhead">Grade Range</span> - You can set the mininmum and maximum grades you are willing to tutor
                   with a minimum of first grade and maximum of eigth grade.
@@ -133,8 +133,8 @@
                   new students" is set to true. However, down the road, if you have as many students as you want/can handle,
                   then you can set it to no and it will be reflected in your directory listing.
                 </p>
-              </div>
-              <div>
+              </section>
+              <section>
                 <h5>Technology</h5>
                 <p>
                   This site is designed to be a directory and a way for parents to find tutors. It does not currently have
@@ -148,7 +148,7 @@
                   In addition, the site does not have any payment processing software built in. So if you charge for your
                   services, you will need to make arrangements with the parents on your own via whatever system you prefer.
                 </p>
-              </div>
+              </section>
             </div>
           </div>
         </div>

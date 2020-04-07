@@ -7,7 +7,7 @@
       </ul>
       <div class="form-group">
         <label>Name:</label>
-        <input type="text" class="form-control" v-model="name" />
+        <input type="text" class="form-control" v-model="name" maxlength="40" />
       </div>
       <div class="form-group">
         <label>Street:</label>
@@ -29,11 +29,11 @@
       </div>
       <div class="form-group">
         <label>School:</label>
-        <input type="text" class="form-control" v-model="school" />
+        <input type="text" class="form-control" v-model="school" maxlength="35" />
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="text" class="form-control" v-model="email" />
+        <input type="email" class="form-control" v-model="email" maxlength="60" />
       </div>
       <div class="form-group row">
         <div class="form-group col-sm-6">
@@ -152,11 +152,11 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Min Grade:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="grade_min" />
+          <input type="number" class="form-control" v-model="grade_min" min="1" max="8" />
         </div>
         <label class="col-sm-2 col-form-label">Max Grade:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="grade_max" />
+          <input type="number" class="form-control" v-model="grade_max" min="1" max="8" />
         </div>
         <label class="col-sm-1 col-form-label">Rate:</label>
         <div class="col-sm-2">

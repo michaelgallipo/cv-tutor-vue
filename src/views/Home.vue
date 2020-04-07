@@ -3,7 +3,7 @@
     <!-- <div class="container"> -->
     <!-- <HelloWorld msg="Welcome to CV Tutor Web" /> -->
     <h1>Welcome to CV Tutor Web</h1>
-    <div id="intro">
+    <main id="intro">
       <p>
         In this time of upheaval, children have had their education routines disrupted and parents have had
         to take on a larger role in their child(ren)'s education. At the same time, college students have returned
@@ -12,7 +12,7 @@
         online tutoring services. Tutors can be found for the following areas - math, reading, science, social
         studies, special needs, and spelling.
       </p>
-    </div>
+    </main>
     <img alt="Vue logo" src="../assets/splash_image.jpg" style="width: 100%" />
     <!-- </div> -->
   </div>
