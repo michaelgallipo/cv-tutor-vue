@@ -2,7 +2,12 @@
   <div class="contact">
     <div class="container">
       <div id="logo" class="col-sm-3 offset-sm-5">
-        <img alt="CV Tutor Web logo" src="../assets/cv-tutor-web.png" style="width: 150px" />
+        <img
+          id="logoImage"
+          alt="CV Tutor Web logo"
+          src="../assets/cv-tutor-web.png"
+          style="width: 150px"
+        />
       </div>
       <div id="title">CV Tutor Web</div>
       <div id="subtitle">Contact and Support</div>
@@ -27,6 +32,13 @@
   font-size: 24px;
   text-align: center;
   font-weight: 900;
+  color: #fcf8ff;
+  text-shadow: 3px 3px black;
+  letter-spacing: 3px;
+  background-color: #feeaa7;
+  width: 9em;
+  margin-left: 40%;
+  margin-top: 0.25em;
 }
 #subtitle {
   padding-top: 1em;
@@ -38,5 +50,15 @@
 #mainText {
   font-size: 20px;
   margin-bottom: 2em;
+}
+
+@media screen and (max-width: 450px) {
+  #title {
+    margin-left: 15vw;
+  }
+
+  #logoImage {
+    margin-left: 20vw;
+  }
 }
 </style>

@@ -2,7 +2,12 @@
   <div class="about">
     <div class="container">
       <div id="logo" class="col-sm-3 offset-sm-5">
-        <img alt="CV Tutor Web logo" src="../assets/cv-tutor-web.png" style="width: 150px" />
+        <img
+          id="logoImage"
+          alt="CV Tutor Web logo"
+          src="../assets/cv-tutor-web.png"
+          style="width: 150px"
+        />
       </div>
       <div id="title">CV TUTOR WEB</div>
       <div id="subtitle">Matching Students with the Tutors They Need</div>
@@ -218,5 +223,15 @@
   margin-top: 25px;
   background-color: lightgreen;
   padding: 10px;
+}
+
+@media screen and (max-width: 450px) {
+  #title {
+    margin-left: 15vw;
+  }
+
+  #logoImage {
+    margin-left: 20vw;
+  }
 }
 </style>

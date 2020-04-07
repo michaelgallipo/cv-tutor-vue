@@ -7,33 +7,33 @@
       </ul>
       <div class="form-group">
         <label>Name:</label>
-        <input type="text" class="form-control" v-model="tutorData.name" />
+        <input type="text" class="form-control" v-model="tutorData.name" maxlength="40" />
       </div>
       <div class="form-group">
         <label>Street:</label>
-        <input type="text" class="form-control" v-model="tutorData.street" />
+        <input type="text" class="form-control" v-model="tutorData.street" maxlength="70" />
       </div>
       <div class="form-group row">
         <label class="col-sm-1 col-form-label">City:</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="tutorData.city" />
+          <input type="text" class="form-control" v-model="tutorData.city" maxlength="30" />
         </div>
         <label class="col-sm-1 col-form-label">State:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="tutorData.state" />
+          <input type="text" class="form-control" v-model="tutorData.state" maxlength="2" />
         </div>
         <label class="col-sm-2 col-form-label">Zip Code:</label>
         <div class="col-sm-2">
-          <input type="text" class="form-control" v-model="tutorData.zip" />
+          <input type="text" class="form-control" v-model="tutorData.zip" maxlength="10" />
         </div>
       </div>
       <div class="form-group">
         <label>School:</label>
-        <input type="text" class="form-control" v-model="tutorData.school" />
+        <input type="text" class="form-control" v-model="tutorData.school" maxlength="50" />
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="text" class="form-control" v-model="tutorData.email" />
+        <input type="email" class="form-control" v-model="tutorData.email" maxlength="60" />
       </div>
       <div class="form-group row">
         <div class="form-group col-sm-6">
@@ -58,7 +58,7 @@
       <div class="form-group row">
         <label class="col-sm-1 col-form-label">Phone:</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="tutorData.phone" />
+          <input type="text" class="form-control" v-model="tutorData.phone" maxlength="15" />
         </div>
         <label class="col-sm-2 col-form-label">&emsp;Phone Visible?</label>
         <div class="col-sm-3">
@@ -157,14 +157,14 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Min Grade:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="tutorData.grade_min" />
+          <input type="number" class="form-control" v-model="tutorData.grade_min" max="8" />
         </div>
         <label class="col-sm-2 col-form-label">Max Grade:</label>
         <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="tutorData.grade_max" />
+          <input type="number" class="form-control" v-model="tutorData.grade_max" min="1" max="8" />
         </div>
         <label class="col-sm-1 col-form-label">Rate:</label>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <input type="text" class="form-control" v-model="tutorData.rate" />
         </div>
       </div>
@@ -281,7 +281,7 @@ export default {
         this.errors.push("Grade Maximum must be between 1-8");
       }
       if (params.grade_max < params.grade_min) {
-        this.errors.push("Grade Maximim can not be less than Grade Minimum");
+        this.errors.push("Grade Maximum can not be less than Grade Minimum");
       }
       if (params.state.length > 2) {
         this.errors.push("State field should use two letter abbreviation");
