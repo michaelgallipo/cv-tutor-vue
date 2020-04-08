@@ -1,28 +1,32 @@
 <template>
   <div class="contact">
     <div class="container">
-      <div id="logo" class="col-sm-3 offset-sm-5">
-        <img
-          id="logoImage"
-          alt="CV Tutor Web logo"
-          src="../assets/cv-tutor-web.png"
-          style="width: 150px"
-        />
-      </div>
-      <div id="title">CV Tutor Web</div>
-      <div id="subtitle">Contact and Support</div>
-      <div id="mainText">
-        <div style="padding-bottom: 0.5em">
-          If you have questions, comments or suggestions on how to make this site better (whether you're
-          a parent or a tutor), we want to hear from you.
+      <header>
+        <div id="logo" class="col-sm-3 offset-sm-5">
+          <img
+            id="logoImage"
+            alt="CV Tutor Web logo"
+            src="../assets/cv-tutor-web.png"
+            style="width: 150px"
+          />
         </div>
-        <div>
-          You can contact us at
-          <a
-            href="mailto:cvtutor@hippowebdevelopment.com"
-          >CVTutor@HippoWebDevelopment.com</a>
+        <div id="title">CV Tutor Web</div>
+      </header>
+      <main>
+        <div id="subtitle">Contact and Support</div>
+        <div id="mainText">
+          <div style="padding-bottom: 0.5em">
+            If you have questions, comments or suggestions on how to make this site better (whether you're
+            a parent or a tutor), we want to hear from you.
+          </div>
+          <div>
+            You can contact us at
+            <a
+              href="mailto:cvtutor@hippowebdevelopment.com"
+            >CVTutor@HippoWebDevelopment.com</a>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   </div>
 </template>
