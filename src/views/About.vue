@@ -1,82 +1,86 @@
 <template>
   <div class="about">
     <div class="container">
-      <div id="logo" class="col-sm-3 offset-sm-5">
-        <img
-          id="logoImage"
-          alt="CV Tutor Web logo"
-          src="../assets/cv-tutor-web.png"
-          style="width: 150px"
-        />
-      </div>
-      <div id="title">CV TUTOR WEB</div>
-      <div id="subtitle">Matching Students with the Tutors They Need</div>
-      <div class="row">
-        <div id="parent" class="col-sm-6">
-          <div id="aboutHeader">For Parents</div>
-          <div class="col-sm-10 offset-sm-1">
-            Parents can search all of our tutors or filter based on grade, subject or location.
-            <br />
-            <br />
-            <br />
+      <header>
+        <div id="logo" class="col-sm-3 offset-sm-5">
+          <img
+            id="logoImage"
+            alt="CV Tutor Web logo"
+            src="../assets/cv-tutor-web.png"
+            style="width: 150px"
+          />
+        </div>
+        <div id="title">CV TUTOR WEB</div>
+      </header>
+      <main>
+        <div id="subtitle">Matching Students with the Tutors They Need</div>
+        <div class="row">
+          <div id="parent" class="col-sm-6">
+            <div id="aboutHeader">For Parents</div>
+            <div class="col-sm-10 offset-sm-1">
+              Parents can search all of our tutors or filter based on grade, subject or location.
+              <br />
+              <br />
+              <br />
+            </div>
+            <div class="col-sm-8 offset-sm-2" style="padding-top: 1em">
+              <button
+                id="parentInfoButton"
+                class="btn-outline-success btn-lg btn-block"
+                data-toggle="modal"
+                data-target="#parentInfoModal"
+              >More Info For Parents</button>
+            </div>
           </div>
-          <div class="col-sm-8 offset-sm-2" style="padding-top: 1em">
-            <button
-              id="parentInfoButton"
-              class="btn-outline-success btn-lg btn-block"
-              data-toggle="modal"
-              data-target="#parentInfoModal"
-            >More Info For Parents</button>
+          <div id="tutor" class="col-sm-6">
+            <div id="aboutHeader">For Tutors</div>
+            <div class="col-sm-10 offset-sm-1">
+              Whether you want to tutor on a volunteer basis or to try to make up for a lost job, you can customize
+              your profile to make it easy for parents and students to find you.
+            </div>
+            <div class="col-sm-8 offset-sm-2" style="padding-top: 1em">
+              <button
+                id="tutorInfoButton"
+                class="btn-outline-info btn-lg btn-block"
+                data-toggle="modal"
+                data-target="#tutorInfoModal"
+              >More Info For Tutors</button>
+            </div>
           </div>
         </div>
-        <div id="tutor" class="col-sm-6">
-          <div id="aboutHeader">For Tutors</div>
-          <div class="col-sm-10 offset-sm-1">
-            Whether you want to tutor on a volunteer basis or to try to make up for a lost job, you can customize
-            your profile to make it easy for parents and students to find you.
-          </div>
-          <div class="col-sm-8 offset-sm-2" style="padding-top: 1em">
-            <button
-              id="tutorInfoButton"
-              class="btn-outline-info btn-lg btn-block"
-              data-toggle="modal"
-              data-target="#tutorInfoModal"
-            >More Info For Tutors</button>
-          </div>
-        </div>
-      </div>
+      </main>
       <!-- Modal -->
       <div
         class="modal fade"
         id="parentInfoModal"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="parentInfoModalLongTitle"
+        aria-labelledby="parentModalLongTitle"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Information for Parents</h5>
+              <p class="modal-title" id="parentModalLongTitle">Information for Parents</p>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <section class="modal-body" id="parentModal">
-              <h5>About the Tutors</h5>
+              <p class="sectionTitle">About the Tutors</p>
               <p>
                 The tutors on this platform are primarily college students and recent graduates. While we believe
                 that the information they have provided is accurate, they have not been formally vetted nor have background
                 checks been performed. As always, parents should trust their judgement and use the contact information provided
                 to ensure their own comfort level.
               </p>
-              <h5>Technology Platform</h5>
+              <p class="sectionTitle">Technology Platform</p>
               <p>
                 This site is intended to be a resource for parents in finding a tutor. There is no built in video software.
                 Parents should coordinate with the tutor(s) to select a platform that both are comfortable with. Depending on
                 the tutoring needs there are many options including Zoom, Skype, FaceTime, etc.
               </p>
-              <h5>Fees</h5>
+              <p class="sectionTitle">Fees</p>
               <p>
                 CV Tutor Web charges no fees to either the tutors or parents for this service. Some of the tutors may elect
                 to charge for their services. This site does not include built-in payment options and the specific payment
@@ -94,19 +98,19 @@
         id="tutorInfoModal"
         tabindex="-1"
         role="dialog"
-        aria-labelledby="tutorInfoModalLongTitle"
+        aria-labelledby="tutorModalLongTitle"
         aria-hidden="true"
       >
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Information for Tutors</h5>
+              <p class="modal-title" id="tutorModalLongTitle">Information for Tutors</p>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body" id="tutorModal">
-              <h5>Your Profile</h5>
+              <p class="sectionTitle">Your Profile</p>
               <p>
                 Your profile is the "face" you show to parents looking for tutoring help. The platform allows you to customize
                 a number of different attributes.
@@ -140,7 +144,7 @@
                 </p>
               </section>
               <section>
-                <h5>Technology</h5>
+                <p class="sectionTitle">Technology</p>
                 <p>
                   This site is designed to be a directory and a way for parents to find tutors. It does not currently have
                   technology for messaging or video conferencing (but your email is clickable and will launch the parent's
@@ -197,6 +201,14 @@
 
 #parentInfoModal {
   background-color: lightgreen;
+}
+
+.modal-title {
+  font-size: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
 }
 
 #tutorInfoModal {

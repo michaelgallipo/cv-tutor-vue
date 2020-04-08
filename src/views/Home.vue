@@ -13,7 +13,7 @@
         studies, special needs, and spelling.
       </p>
     </main>
-    <img alt="Vue logo" src="../assets/splash_image.jpg" style="width: 100%" />
+    <img alt="Vue logo" src="@/assets/splash_image.jpg" style="width: 100%" />
     <!-- </div> -->
   </div>
 </template>

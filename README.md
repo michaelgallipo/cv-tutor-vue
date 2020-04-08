@@ -1,26 +1,13 @@
 # cv-tutor-vue
 
-## Project setup
-```
-yarn install
-```
+<img src="/public/website_preview.png">
 
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
+<p style="font-size: 18px">
+CV Tutor Web is the front-end interface for an app that matches would-be tutors with parents looking for help with home schooling/remote learning as a result of the COVID-19 pandemic.
+</p>
 
-### Compiles and minifies for production
-```
-yarn run build
-```
+## Project Creation - Built with Yarn
 
-### Run your tests
 ```
-yarn run test
-```
-
-### Lints and fixes files
-```
-yarn run lint
+normal yarn commands apply
 ```

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <div id="nav">
+      <nav id="nav">
         <router-link to="/">HOME</router-link>&ensp;|&ensp;
         <router-link to="/about">ABOUT</router-link>&ensp;|&ensp;
         <router-link to="/tutors">FIND A TUTOR</router-link>
@@ -15,7 +15,7 @@
         <router-link v-if="isLoggedIn()" to="/logout">LOGOUT</router-link>
         <span>&ensp;|&ensp;</span>
         <router-link to="/contact">CONTACT/SUPPORT</router-link>
-      </div>
+      </nav>
       <router-view />
       <footer>
         <div class="row">
