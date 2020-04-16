@@ -47,18 +47,6 @@
         </select>
       </div>
     </div>
-    <!-- <div>
-      <button
-        class="btn btn-info"
-        v-if="!show_all"
-        v-on:click="toggleShowAll()"
-      >Include those not accepting new students</button>
-      <button
-        class="btn-info"
-        v-if="show_all"
-        v-on:click="toggleShowAll()"
-      >Hide those not accepting new students</button>
-    </div>-->
     <div class="form-check" id="showAll">
       <input class="form-check-input" type="checkbox" v-on:click="toggleShowAll()" />
       <label class="form-check-label">Include those not accepting new students in listings</label>
@@ -101,7 +89,6 @@
                     <a v-bind:href="'mailto:' + tutor.email">{{ tutor.email }}</a>
                   </p>
                   <p v-if="tutor.phone_visible">Phone: {{ tutor.phone }}</p>
-                  <!-- <p v-if="tutor.accept_new">Accepting New Students</p> -->
                 </div>
               </div>
             </div>
@@ -180,16 +167,16 @@ export default {
     axios.get("api/tutors").then(response => {
       this.data_loaded = true;
       this.tutors = response.data;
-      console.log(this.tutors);
+      // console.log(this.tutors);
       let all_states = this.tutors.map(tutor => tutor.state);
       this.states = Array.from(new Set(all_states)).sort();
-      console.log(this.states);
+      // console.log(this.states);
     });
   },
   methods: {
     toggleShowAll: function() {
       this.show_all = !this.show_all;
-      console.log(this.show_all);
+      // console.log(this.show_all);
     }
   }
 };
