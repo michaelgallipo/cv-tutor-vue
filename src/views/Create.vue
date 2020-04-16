@@ -5,251 +5,52 @@
       <ul>
         <li class="text-danger" v-for="(error, index) in errors" :key="index">{{ error }}</li>
       </ul>
-      <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="name" maxlength="40" />
-      </div>
-      <div class="form-group">
-        <label>Street:</label>
-        <input type="text" class="form-control" v-model="street" maxlength="70" />
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label">City:</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="city" maxlength="30" />
-        </div>
-        <label class="col-sm-1 col-form-label">State:</label>
-        <div class="col-sm-1">
-          <input type="text" class="form-control" v-model="state" maxlength="2" />
-        </div>
-        <label class="col-sm-2 col-form-label">Zip Code:</label>
-        <div class="col-sm-2">
-          <input type="text" class="form-control" v-model="zip" maxlength="10" />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>School:</label>
-        <input type="text" class="form-control" v-model="school" maxlength="50" />
-      </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="email" maxlength="60" />
-      </div>
-      <div class="form-group row">
-        <div class="form-group col-sm-6">
-          <label>Password</label>
-          <input type="password" class="form-control" placeholder="Password" v-model="password" />
-        </div>
-        <div class="form-group col-sm-6">
-          <label>Confirm Password</label>
-          <input
-            type="password"
-            class="form-control"
-            placeholder="Repeat Password"
-            v-model="password_confirmation"
-          />
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-1 col-form-label">Phone:</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="phone" maxlength="15" />
-        </div>
-        <label class="col-sm-2 col-form-label">Phone Visible?:</label>
-        <div class="col-sm-3">
-          <div class="form-check form-check-inline">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="phoneVisibleOptions"
-              id="phoneVis1"
-              value="true"
-              v-model="phone_visible"
-            />
-            <label class="form-check-label" for="phoneVis1">Yes</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="phoneVisibleOptions"
-              id="phoneVis2"
-              value="false"
-              v-model="phone_visible"
-            />
-            <label class="form-check-label" for="phoneVis2">No</label>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label>About Me:</label>
-        <textarea type="textarea" class="form-control" rows="5" v-model="about" />
-      </div>
-      <div class="form-group">
-        <label>Subjects</label>
-        <br />
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="checkbox1"
-            value="true"
-            v-model="math"
-          />
-          <label class="form-check-label" for="checkbox1">Math &emsp;</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="checkbox2"
-            value="true"
-            v-model="reading"
-          />
-          <label class="form-check-label" for="checkbox2">Reading &emsp;</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="checkbox3"
-            value="true"
-            v-model="spelling"
-          />
-          <label class="form-check-label" for="checkbox2">Spelling &emsp;</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="checkbox4"
-            value="true"
-            v-model="special_needs"
-          />
-          <label class="form-check-label" for="checkbox4">Special Needs &emsp;</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="checkbox5"
-            value="true"
-            v-model="science"
-          />
-          <label class="form-check-label" for="checkbox5">Science &emsp;</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="checkbox"
-            id="checkbox6"
-            value="true"
-            v-model="social_studies"
-          />
-          <label class="form-check-label" for="checkbox4">Social Studies &emsp;</label>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label class="col-sm-2 col-form-label">Min Grade:</label>
-        <div class="col-sm-1">
-          <input type="number" class="form-control" v-model="grade_min" min="1" max="8" />
-        </div>
-        <label class="col-sm-2 col-form-label">Max Grade:</label>
-        <div class="col-sm-1">
-          <input type="number" class="form-control" v-model="grade_max" min="1" max="8" />
-        </div>
-        <label class="col-sm-1 col-form-label">Rate:</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" v-model="rate" />
-        </div>
-      </div>
-      <div class="form-row">
-        <label class="col-form-label">Accept New Students: &emsp;</label>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="inlineRadioOptions"
-            id="acceptNew1"
-            value="true"
-            v-model="accept_new"
-          />
-          <label class="form-check-label" for="acceptNew1">Yes</label>
-        </div>
-        <div class="form-check form-check-inline">
-          <input
-            class="form-check-input"
-            type="radio"
-            name="inlineRadioOptions"
-            id="acceptNew1"
-            value="false"
-            v-model="accept_new"
-          />
-          <label class="form-check-label" for="acceptNew2">No</label>
-        </div>
-      </div>
+      <tutorForm v-bind:tutorData="tutorData" />
       <button class="btn btn-primary" v-on:click="submit()">Submit</button>
     </div>
   </div>
 </template>
 
 <script>
+import tutorForm from "@/components/TutorForm.vue";
 var axios = require("axios");
 export default {
+  components: {
+    tutorForm
+  },
   data: function() {
     return {
-      name: "",
-      street: "",
-      city: "",
-      state: "",
-      zip: "",
-      school: "",
-      email: "",
-      password: "",
-      password_confirmation: "",
-      phone: "",
-      phone_visible: "",
-      about: "",
-      grade_min: "",
-      grade_max: "",
-      rate: "",
-      accept_new: true,
-      math: false,
-      reading: false,
-      spelling: false,
-      special_needs: false,
-      science: false,
-      social_studies: false,
+      tutorData: {
+        name: "",
+        street: "",
+        city: "",
+        state: "",
+        zip: "",
+        school: "",
+        email: "",
+        password: "",
+        password_confirmation: "",
+        phone: "",
+        phone_visible: "",
+        about: "",
+        grade_min: "",
+        grade_max: "",
+        rate: "",
+        accept_new: true,
+        math: false,
+        reading: false,
+        spelling: false,
+        special_needs: false,
+        science: false,
+        social_studies: false
+      },
       errors: []
     };
   },
   methods: {
     submit: function() {
-      var params = {
-        name: this.name,
-        street: this.street,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        school: this.school,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.password_confirmation,
-        phone: this.phone,
-        phone_visible: this.phone_visible,
-        about: this.about,
-        grade_min: this.grade_min,
-        grade_max: this.grade_max,
-        rate: this.rate,
-        accept_new: this.accept_new,
-        math: this.math,
-        reading: this.reading,
-        spelling: this.spelling,
-        special_needs: this.special_needs,
-        science: this.science,
-        social_studies: this.social_studies
-      };
-      // console.log(params);
+      console.log(this.tutorData);
+      var params = { ...this.tutorData };
       if (this.validate_entry(params)) {
         axios
           .post("/api/tutors", params)
@@ -260,7 +61,6 @@ export default {
             }
           })
           .catch(error => {
-            // this.errors = error.response.data.errors;
             this.errors = [
               "There was a problem saving your data. Please double check your responses"
             ];
